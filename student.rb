@@ -6,6 +6,11 @@ class Student < Person
     @classroom = classroom
   end
 
+  def classroom = classroom
+    @classroom = classroom
+    classroom.student << slef
+  end
+
   def play_hooky
     '¯\\(ツ)/¯'
   end
