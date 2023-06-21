@@ -1,13 +1,15 @@
+require_relative 'student'
+
 class Classrom 
-    attr_accessor: :label, :student
+    attr_accessor: :label, :students
 
     def initialize(label)
         @label = label
-        @student = []
+        @students = []
     end
 
     def add_student(student)
-        @student.push(student)
+        @students.push(student)
         student.classroom = self
     end
 end
