@@ -85,4 +85,29 @@ class App
     end
   end
 
+  def create_student
+    puts 'Create a Student'
+    print 'Age: '
+    age = gets.chomp
+    print 'Name: '
+    name = gets.chomp
+    puts 'Has parent permissiom [Y/N]?'
+    parent_permission = gets.chomp.downcase
+    student = Student.new(age, name, parent_permission)
+    @people.push(student)
+    puts 'Student created successfully'
+  end
+
+  def create_teacher
+    print 'Age: '
+    age = gets.chomp.to_i
+    print 'Name: '
+    name = gets.chomp
+    print 'Specialization: '
+    specialization = gets.chomp
+    teacher = Teacher.new(age, specialization, name)
+    @people.push(teacher)
+    puts 'Teacher created successfully'
+  end
+
 end
