@@ -27,7 +27,8 @@ class Person < Nameable
     @age >= 18
   end
 
-  def add_rental(book, date)
-    Rental.new(date, book, self)
+  def add_rental(person, date = Date.today, book = self)
+    Rental.new(date, book, person)
+    @rentals << self unless @rentals.include?(self)
   end
 end
