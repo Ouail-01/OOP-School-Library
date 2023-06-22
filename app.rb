@@ -65,4 +65,24 @@ class App
     puts 'Rental created successfully'
   end
 
+  def list_rentals
+    if @rentals.empty?
+        puts 'Rental is empty'
+      else
+        print 'Enter ID of person: '
+        person_id = gets.chomp.to_i
+  
+        rentals_found = false
+        @rentals.each do |rental|
+          next unless rental.person.id == person_id
+  
+          rentals_found = true
+          puts 'Rentals:'
+          puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
+        end
+  
+        puts 'No rentals found for the given person' unless rentals_found
+    end
+  end
+
 end
