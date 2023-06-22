@@ -14,9 +14,6 @@ def call_app(app, choice)
     app.create_rental
   when 6
     app.list_rentals
-  when 7
-    puts 'Thanks for using this app!'
-    exit
   else
     puts 'Invalid input'
   end
@@ -37,6 +34,10 @@ def main
     puts '7 - Exit'
 
     choice = gets.chomp.to_i
+    if choice == 7
+      puts 'Thanks for using this app!'
+      break
+    end
 
     call_app(app, choice)
   end

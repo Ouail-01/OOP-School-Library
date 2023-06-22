@@ -31,12 +31,12 @@ class App
   def create_person
     puts 'Do you whant to create a student (1) or a teacher (2)? [input the number]'
     input = gets.chomp.to_i
-    if input === 1
-        create_student
-    elsif input === 2
-        create_teacher
+    if input == 1
+      create_student
+    elsif input == 2
+      create_teacher
     else
-        puts 'Incorrect choice'
+      puts 'Incorrect choice'
     end
   end
 
@@ -67,21 +67,21 @@ class App
 
   def list_rentals
     if @rentals.empty?
-        puts 'Rental is empty'
-      else
-        print 'Enter ID of person: '
-        person_id = gets.chomp.to_i
-  
-        rentals_found = false
-        @rentals.each do |rental|
-          next unless rental.person.id == person_id
-  
-          rentals_found = true
-          puts 'Rentals:'
-          puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
-        end
-  
-        puts 'No rentals found for the given person' unless rentals_found
+      puts 'Rental is empty'
+    else
+      print 'Enter ID of person: '
+      person_id = gets.chomp.to_i
+
+      rentals_found = false
+      @rentals.each do |rental|
+        next unless rental.person.id == person_id
+
+        rentals_found = true
+        puts 'Rentals:'
+        puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
+      end
+
+      puts 'No rentals found for the given person' unless rentals_found
     end
   end
 
@@ -109,5 +109,4 @@ class App
     @people.push(teacher)
     puts 'Teacher created successfully'
   end
-
 end
